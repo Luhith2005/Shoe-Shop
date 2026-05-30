@@ -37,12 +37,21 @@ Branding changes in real-time depending on the active theme:
 ### 7. INR Pricing & Coupons
 * Currency format localized to Indian Rupees (`₹`) with commas (e.g., `₹12,499`).
 * Supports the special 20% discount checkout coupon: `Sriram040605`.
-
 ### 8. Target Gender Categorization (Men vs. Women)
 * Products are segmented into **Men's**, **Women's**, and **Unisex** collections.
 * Offers quick navigation redirects from the homepage "Shop by Gender" cards.
 * Displays dedicated "Shop by Gender" homepage blocks with responsive scaling animations.
 * Integrates matching sidebar controls to filter products dynamically while showing Unisex sizing naturally.
+### 9. Floating AI Chat Guide (Sparkles Assistant)
+* A floating, glassmorphic chat widget centered at the bottom right of the page.
+* Offers smart local NLP keyword detection to recommend running/basketball shoes, slides, or brand lists.
+* Returns interactive scrollable shoe cards directly within the chat bubble with fully functional "Details" and "Add to Cart" actions.
+* Integrates store FAQs for shipping, return policies, customer support contacts, and promotional coupons.
+* Automatically switches layout, opacity levels, and color themes dynamically to remain legible in both dark and light modes.
+
+### 10. Circular Reveal Theme View Transition
+* Utilizes the modern browser View Transitions API to animate theme shifts.
+* When clicking the dark/light mode button in the header, a circular reveal clip-path sweeps across the screen starting exactly from the click cursor position (top-right) towards the bottom-left corner of the page.
 
 ---
 
@@ -74,6 +83,7 @@ Below is the structured index of pages and components in the application:
 * [GenderIcons.jsx](file:///c:/Users/luhit/OneDrive/Desktop/Shoe%20Shop/src/components/GenderIcons.jsx) - Shared component providing custom Men and Women collection SVGs.
 * [ShoeCard.jsx](file:///c:/Users/luhit/OneDrive/Desktop/Shoe%20Shop/src/components/ShoeCard.jsx) - Card component presenting ratings, pricing, category indicators, and cart buttons.
 * [Filters.jsx](file:///c:/Users/luhit/OneDrive/Desktop/Shoe%20Shop/src/components/Filters.jsx) - The sidebar control panel managing brand checklists, price ranges, categories, and resets.
+* [AIChat.jsx](file:///c:/Users/luhit/OneDrive/Desktop/Shoe%20Shop/src/components/AIChat.jsx) - Floating AI assistant with custom scrollable product recommendation sliders and FAQ responders.
 
 ### Pages
 * [Home.jsx](file:///c:/Users/luhit/OneDrive/Desktop/Shoe%20Shop/src/pages/Home.jsx) - Frontpage showcasing the animated hero shoe, brand cards, category buttons, and newsletter.

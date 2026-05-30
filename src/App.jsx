@@ -6,6 +6,7 @@ import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import { useCart } from "./context/CartContext";
 import { Star, X, ShoppingCart, Heart } from "lucide-react";
+import AIChat from "./components/AIChat";
 import { shoes } from "./data/data";
 
 const getColorFilter = (color) => {
@@ -490,6 +491,7 @@ function App() {
           </div>
         </div>
       )}
+      <AIChat onOpenDetails={handleOpenDetails} />
     </div>
   );
 }

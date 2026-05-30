@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
+import { flushSync } from "react-dom";
 
 const CartContext = createContext();
 
@@ -31,8 +32,41 @@ export const CartProvider = ({ children }) => {
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+  const toggleTheme = (event) => {
+    if (!document.startViewTransition) {
+      setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+      return;
+    }
+
+    const x = event?.clientX ?? (window.innerWidth - 80);
+    const y = event?.clientY ?? 40;
+
+    const endRadius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y)
+    );
+
+    const transition = document.startViewTransition(() => {
+      flushSync(() => {
+        setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+      });
+    });
+
+    transition.ready.then(() => {
+      document.documentElement.animate(
+        {
+          clipPath: [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${endRadius}px at ${x}px ${y}px)`,
+          ],
+        },
+        {
+          duration: 500,
+          easing: "ease-in-out",
+          pseudoElement: "::view-transition-new(root)",
+        }
+      );
+    });
   };
 
   useEffect(() => {

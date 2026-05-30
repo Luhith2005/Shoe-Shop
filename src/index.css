@@ -422,6 +422,7 @@ button {
 
 .hero-content h1 span {
   background: linear-gradient(135deg, var(--accent-neon) 0%, var(--accent-crimson) 100%);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -1899,4 +1900,17 @@ button {
 [data-theme="light"] .cart-icon-wrapper:hover {
   background-color: rgba(0, 0, 0, 0.06);
   box-shadow: 0 0 10px var(--accent-neon-glow);
+}
+
+/* Circular View Transition for Theme Toggle */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 9999;
 }
